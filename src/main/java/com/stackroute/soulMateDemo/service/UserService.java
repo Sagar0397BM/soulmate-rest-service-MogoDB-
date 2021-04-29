@@ -18,7 +18,7 @@ public interface UserService {
     String deleteUser(int id) throws NoSuchElementException;
     Optional<User> getUserById(int id)throws NoSuchElementException;;
     User updateUser(int id,User user)throws NoSuchElementException;;
-
+    List<User> findUserByAge(int age);
 
 
 

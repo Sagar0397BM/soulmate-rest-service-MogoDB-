@@ -64,5 +64,10 @@ public class UserServiceImpl implements UserService{
         return userRepo.save(user);
     }
 
+    @Override
+    public List findUserByAge(int age) {
+        return userRepo.findByAge(age);
+    }
+
 
 }

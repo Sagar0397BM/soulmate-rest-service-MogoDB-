@@ -25,30 +25,37 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public ResponseEntity<User> saveUser(@RequestBody User user) throws UserAlradyExistsException,Exception  {
-        User savedUser= userService.saveUser(user);
+    public ResponseEntity<User> saveUser(@RequestBody User user) throws UserAlradyExistsException, Exception {
+        User savedUser = userService.saveUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers()throws Exception{
-        return  new ResponseEntity<List<User>>((List<User>) userService.getAllUser(),HttpStatus.OK);
+    public ResponseEntity<List<User>> getAllUsers() throws Exception {
+        return new ResponseEntity<List<User>>((List<User>) userService.getAllUser(), HttpStatus.OK);
     }
+
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteUserById(@PathVariable int id) throws NoSuchElementException,Exception {
+    public ResponseEntity<String> deleteUserById(@PathVariable int id) throws NoSuchElementException, Exception {
         userService.deleteUser(id);
-        return new ResponseEntity<String>("Success",HttpStatus.OK);
+        return new ResponseEntity<String>("Success", HttpStatus.OK);
     }
+
     @GetMapping("/users/{id}")
-    public User userById(@PathVariable int id) throws NoSuchElementException,Exception{
+    public User userById(@PathVariable int id) throws NoSuchElementException, Exception {
         Optional<User> user = userService.getUserById(id);
         return user.get();
     }
 
     @PutMapping("/users/update/{id}")
-    public ResponseEntity<User> updateById(@PathVariable int id,@RequestBody User user) throws NoSuchElementException,Exception{
-        userService.updateUser(id,user);
+    public ResponseEntity<User> updateById(@PathVariable int id, @RequestBody User user) throws NoSuchElementException, Exception {
+        userService.updateUser(id, user);
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/users/search/{age}")
+    public ResponseEntity<List<User>> UserByAge(@PathVariable int age) {
+        return new ResponseEntity<List<User>>((List<User>) userService.findUserByAge(age), HttpStatus.OK);
+
+    }
 }
