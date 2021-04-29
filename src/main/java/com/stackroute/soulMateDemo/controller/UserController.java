@@ -3,7 +3,7 @@ package com.stackroute.soulMateDemo.controller;
 import com.stackroute.soulMateDemo.Domain.User;
 
 import com.stackroute.soulMateDemo.Exceptions.UserAlradyExistsException;
-import com.stackroute.soulMateDemo.Exceptions.UserNotFoundException;
+
 import com.stackroute.soulMateDemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

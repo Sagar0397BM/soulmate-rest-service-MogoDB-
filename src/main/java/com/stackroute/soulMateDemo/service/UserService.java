@@ -3,9 +3,6 @@ package com.stackroute.soulMateDemo.service;
 import com.stackroute.soulMateDemo.Domain.User;
 
 import com.stackroute.soulMateDemo.Exceptions.UserAlradyExistsException;
-import com.stackroute.soulMateDemo.Exceptions.UserNotFoundException;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.NoSuchElementException;
